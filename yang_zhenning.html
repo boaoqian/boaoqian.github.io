@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>钱学森的故事</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        header {
+            background-color: #c00;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        main {
+            max-width: 800px; /* 调整显示范围 */
+            margin: auto; /* 居中显示 */
+            padding: 20px;
+            background-color: #fff;
+            margin-top: 20px;
+            border: 1px solid #c00;
+            border-radius: 5px;
+        }
+
+        .scientist-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            line-height: 2.0;
+        }
+
+        .scientist-info img {
+            width: 150px;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .scientist-description {
+            line-height: 1.6;
+            font-size: 16px;
+        }
+        .scientist-story {
+            line-height: 2.0;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <h1>{{ pageTitle }}</h1>
+        </header>
+        <main>
+            <div class="scientist-info">
+                <img :src="scientist.image" :alt="scientist.name">
+                <div class="scientist-description">
+                    <h2>{{ scientist.name }}（{{ scientist.birth }}年{{ scientist.death }}年）</h2>
+                    <p>{{ scientist.title }}</p>
+                    <p>{{ scientist.contribution }}</p>
+                    <p>{{ scientist.patriotism }}</p>
+                </div>
+            </div>
+            <div class="scientist-story"><p>{{ scientist.story }}</p></div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                pageTitle: '杨振宁的故事',
+                scientist: {
+                    name: '杨振宁',
+                    birth: '1922',
+                    death: '-',
+                    image: 'yang.jpg',
+                    title: '中国物理学家',
+                    contribution: '杨振宁与李政道因提出“李杨理论”而共同获得了诺贝尔物理学奖。这一成就不仅让他们成为首位获得诺贝尔奖的中国籍科学家，也是他们在物理学界享有盛誉的象征。',
+                    patriotism: '杨振宁以他卓越的学术成就、深远的影响力和独特的个人魅力，深深地影响了现代物理学的发展方向和全球科学界的格局。他的故事不仅是一部优秀科学家的传奇，也是中国现代科学发展历程中不可或缺的重要篇章。',
+                    story: '杨振宁和李政道是中国科学界的两位杰出代表，他们共同发现了“李杨理论”，这一理论对于当时的物理学界产生了巨大的影响，并为他们赢得了1957年的诺贝尔物理学奖。但在谈论这一故事时，不得不提到他们之间那段富有传奇色彩的合作经历。故事始于1948年，当时，杨振宁和李政道正在美国普林斯顿大学攻读博士学位，两人同在物理系就读。当时，他们对物理学界中一些疑问产生了兴趣，其中一个就是关于“弱相互作用”的问题。这个问题困扰着物理学家们很长一段时间，而杨和李也决定一探究竟。杨振宁和李政道开始了艰苦的研究，他们深入探讨了现有理论的不足之处，并试图寻找新的方向。经过数月的努力，他们终于在1956年提出了“李杨理论”，这一理论揭示了弱相互作用的内在机制，填补了当时物理学界的理论空白。有趣的是，杨振宁和李政道之所以能够取得如此突破性的成果，部分原因在于他们的合作模式。据说，两人在合作过程中经常进行激烈的辩论和思想碰撞，他们将彼此的观点不断推敲、深入，直至达成共识。这种合作模式既充满了挑战，又充满了创新，为他们的研究工作注入了活力。而更令人感兴趣的是，杨振宁和李政道虽然合作密切，但在性格上却大相径庭。杨振宁被描述为温和谦逊、思维缜密，而李政道则显得锐利而直言不讳。这种截然不同的性格也为他们的合作增添了不少火花，让他们能够在思想碰撞中迸发出更多的创新想法。1957年，杨振宁和李政道凭借他们的杰出成就共同获得了诺贝尔物理学奖。这一成就不仅是对他们个人的认可，也是对中国科学界的巨大鼓舞。他们的故事告诉我们，合作与创新是科学研究中不可或缺的元素，而坚持不懈、勇于挑战传统观念也是取得突破性成果的关键。杨振宁和李政道的合作故事令人感慨，他们以实际行动向世界展示了中国科学家的风采和实力。他们的杰出成就不仅为中国科学界写下了浓墨重彩的一笔，也为后人树立了崇高的科学榜样。他们的故事将永远激励着我们，鼓舞着我们在科学研究的道路上不断前行，追求更高的成就。'
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>钱学森的故事</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        header {
+            background-color: #c00;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        main {
+            max-width: 800px; /* 调整显示范围 */
+            margin: auto; /* 居中显示 */
+            padding: 20px;
+            background-color: #fff;
+            margin-top: 20px;
+            border: 1px solid #c00;
+            border-radius: 5px;
+        }
+
+        .scientist-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            line-height: 2.0;
+        }
+
+        .scientist-info img {
+            width: 150px;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .scientist-description {
+            line-height: 1.6;
+            font-size: 16px;
+        }
+        .scientist-story {
+            line-height: 2.0;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <h1>{{ pageTitle }}</h1>
+        </header>
+        <main>
+            <div class="scientist-info">
+                <img :src="scientist.image" :alt="scientist.name">
+                <div class="scientist-description">
+                    <h2>{{ scientist.name }}（{{ scientist.birth }}年{{ scientist.death }}年）</h2>
+                    <p>{{ scientist.title }}</p>
+                    <p>{{ scientist.contribution }}</p>
+                    <p>{{ scientist.patriotism }}</p>
+                </div>
+            </div>
+            <div class="scientist-story"><p>{{ scientist.story }}</p></div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                pageTitle: '屠呦呦的故事',
+                scientist: {
+                    name: '屠呦呦',
+                    birth: '1930',
+                    death: '-',
+                    image: 'tu.jpg',
+                    title: '中国药物化学家',
+                    contribution: '屠呦呦是中国著名的药物化学家，因其在抗疟药物青蒿素的研发中作出了突出贡献而享誉全球。她的故事不仅令人钦佩，更是科学与奉献精神的典范，深刻地影响了全球的药物研发和公共卫生实践。',
+                    patriotism: '作为中国科学家的代表，屠呦呦的精神在当今仍然激励着无数年轻科学家追求科学真理、服务人类健康。她对科学方法的坚守和对人类健康的深情关怀，构成了中国现代科技发展史上不可或缺的重要篇章。',
+                    story: '青蒿素的发现与研究20世纪60年代末至70年代初，疟疾在中国南方地区特别是农村地区广泛流行，给人民的健康带来了严重威胁。当时已知的抗疟药物如奎宁、磺胺类药物等治疗效果有限，并且易产生耐药性。在这种背景下，青蒿素作为一种传统的中药，引起了科学家们的兴趣。屠呦呦作为当时中国中医科学院中药研究所的研究员，率先发起了对青蒿素的深入研究。她并不满足于青蒿素仅仅作为传统药物的使用历史，而是希望通过现代科学方法，探索其更广泛的药理作用和治疗潜力。实地调研与初步发现为了全面了解青蒿的药理作用，屠呦呦亲自带领研究团队深入中国南方的乡村地区进行了大量的实地调研。她们首先从农民和传统医药师口中收集到了大量使用青蒿治疗疟疾的案例和经验，这些实地调研为后来的研究奠定了坚实的基础。在调研的基础上，屠呦呦团队从青蒿植物中提取出一种具有强烈生物活性的物质，并命名为青蒿素。初步的实验结果显示，青蒿素对疟原虫有强烈的杀灭作用，且作用速度快，效果显著，这一发现引起了科学界的广泛关注和重视。系统的实验验证与临床试验为了进一步验证青蒿素的抗疟效果，屠呦呦团队展开了一系列系统的实验和临床试验。他们在实验室中通过各种生物学和化学手段，对青蒿素的药理机制、毒副作用等进行深入研究，确保其安全性和有效性。同时，屠呦呦还亲自带领团队走访了多个疟疾流行地区的医院和卫生站，进行了大规模的临床试验。这些试验不仅验证了青蒿素对各种类型疟原虫的高效杀灭作用，还证明了其在实际应用中的良好耐受性和安全性，为进一步推广应用提供了坚实的科学依据。成果的公布与全球影响1972年，屠呦呦和她的团队在国际学术期刊上正式发表了《青蒿素对疟疾的治疗效果》的重要论文，宣告了青蒿素在抗疟疾领域的重大突破。这一发现不仅在医学界引起了广泛的震动，也为全球抗击疟疾提供了新的希望和选择。青蒿素的发现被认为是中药现代化研究的重要里程碑，也为全球抗疟疾策略的调整和升级提供了重要支持。其高效、低毒的特性，使得青蒿素成为了全球主流的抗疟药物之一，挽救了数以百万计的疟疾患者的生命。'
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

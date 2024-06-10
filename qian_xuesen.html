@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>钱学森的故事</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        header {
+            background-color: #c00;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        main {
+            max-width: 800px; /* 调整显示范围 */
+            margin: auto; /* 居中显示 */
+            padding: 20px;
+            background-color: #fff;
+            margin-top: 20px;
+            border: 1px solid #c00;
+            border-radius: 5px;
+        }
+
+        .scientist-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            line-height: 2.0;
+        }
+
+        .scientist-info img {
+            width: 150px;
+            height: auto;
+            border-radius: 5px;
+            margin-right: 20px;
+        }
+        .scientist-story {
+            line-height: 2.0;
+            font-size: 20px;
+        }
+        .scientist-description {
+            line-height: 1.6;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <h1>{{ pageTitle }}</h1>
+        </header>
+        <main>
+            <div class="scientist-info">
+                <img :src="scientist.image" :alt="scientist.name">
+                <div class="scientist-description">
+                    <h2>{{ scientist.name }}（{{ scientist.birth }}年{{ scientist.death }}年）</h2>
+                    <p>{{ scientist.title }}</p>
+                    <p>{{ scientist.contribution }}</p>
+                    <p>{{ scientist.patriotism }}</p>
+                </div>
+            </div>
+            <div class="scientist-story"><p>{{ scientist.story }}</p></div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                pageTitle: '钱学森的故事',
+                scientist: {
+                    name: '钱学森',
+                    birth: '1911',
+                    death: '2009',
+                    image: 'qian.jpg',
+                    title: '中国航天工程师、火箭专家',
+                    contribution: '钱学森是中国载人航天事业的奠基人之一，主持了中国第一颗人造卫星“东方红一号”的研制工作。他还领导了中国的导弹和原子弹技术发展，被誉为“中国航天之父”、“中国导弹之父”。',
+                    patriotism: '钱学森深爱祖国，他的一生都为中国航天事业和国防事业倾注了心血和智慧。他的科技成就和无私奉献精神深受人民敬仰。',
+                    story: '钱学森，在他年轻的时候，钱学森就是一个学霸级的人物。他在上海交通大学读书的时候，成绩优异，简直就是“别人家的孩子”。毕业后，他获得了去美国麻省理工学院留学的机会，成为了一名留学生。在美国，他不仅学会了地道的英语口语，还在航空领域展现出了惊人的天赋。在美国加州理工学院，钱学森师从世界著名的航空科学家冯·卡门，两人合作得非常愉快，共同创造了许多科研成果。钱学森的聪明才智和勤奋工作让他在美国科学界声名鹊起，成为了备受瞩目的科学家。然而，当新中国成立的消息传到大洋彼岸时，钱学森的内心燃起了一团回家的火焰。他决定放弃在美国的成功和舒适生活，回国为新中国效力。但是，他的回国之路并不平坦。美国当局因为担心他会将先进的航空技术带回中国，竟然将他软禁起来。被软禁的钱学森并没有放弃，他通过各种方式与外界联系，最终在祖国的帮助下，成功回到了祖国的怀抱。回国后，钱学森成为了中国航天事业的奠基人，他带领团队克服重重困难，成功研制出了中国第一颗人造卫星“东方红一号”，让中国的声音响彻太空。钱学森的故事就像一部励志大片，展现了一个科学家对祖国的无限忠诚和对科学的执着追求。他的故事告诉我们，只要有梦想和坚持，就没有什么困难是不能克服的。钱学森的精神将继续激励着一代又一代的中国人为国家的繁荣和科学的进步而努力奋斗。'
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

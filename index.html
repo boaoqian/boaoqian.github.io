@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中国科学家故事</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: #c00;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        nav {
+            background-color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #c00;
+            text-decoration: none;
+            margin: 0 10px;
+            padding: 5px;
+            border: 1px solid #c00;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #c00;
+            color: #fff;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        .intro {
+            padding: 30px;
+            background-color: #fff3e0;
+            width: 80%;
+            border: 1px solid #ffa726;
+            border-radius: 5px;
+            animation: fadeIn 2s;
+            margin-bottom: 20px;
+        }
+
+        .intro h2 {
+            color: #e65100;
+        }
+
+        .intro a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #333;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .intro a:hover {
+            background-color: #f2f2f2;
+        }
+
+        .intro .left {
+            flex: 2;
+        }
+
+        .intro .right {
+            flex: 1;
+            text-align: right;
+            font-style: italic;
+            color: #777;
+        }
+
+        .scientists {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 80%;
+        }
+
+        .scientist {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #c00;
+            border-radius: 5px;
+            width: 100%;
+            animation: slideIn 1s;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .scientist:hover {
+            transform: scale(1.03);
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .scientist img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+            }
+
+            to {
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <h1>{{ title }}</h1>
+        </header>
+        <div class="container">
+            <div class="intro">
+                <h2>{{ introTitle }}</h2>
+                <a :href="introLink" target="_blank">
+                    <div class="left">{{ introText }}</div>
+                    <div class="right">{{ introQuote }}</div>
+                </a>
+                <p>{{ introDescription }}</p>
+                <div v-for="(section, index) in introSections" :key="index">
+                    <h3>{{ section.title }}</h3>
+                    <p>{{ section.content }}</p>
+                </div>
+                <p>{{ outroText }}</p>
+            </div>
+
+            <h2 style="font-family: Arial, sans-serif; font-size: 28px; font-weight: bold; color: #de5656;">我们的科学家</h2>
+            <div class="scientists">
+                <div class="scientist" v-for="scientist in scientists" :key="scientist.name">
+                    <img :src="scientist.image" :alt="scientist.name">
+                    <div>
+                        <h2><a :href="scientist.link">{{ scientist.name }}</a></h2>
+                        <p>{{ scientist.description }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                title: '科学家精神',
+                introTitle: '什么是科学家精神',
+                introLink: 'https://www.12371.cn/2021/05/28/ARTI1622208186296603.shtml',
+                introText: '在中华民族伟大复兴的征程上，一代又一代科学家心系祖国和人民，不畏艰难，无私奉献，为科学技术进步、人民生活改善、中华民族发展作出了重大贡献。新时代更需要继承发扬以国家民族命运为己任的爱国主义精神，更需要继续发扬以爱国主义为底色的科学家精神。',
+                introQuote: '——2021年5月28日，习近平在两院院士大会中国科协第十次全国代表大会上的讲话',
+                introDescription: '科学家精神是科学工作者在长期科学实践中积累的宝贵精神财富。习近平总书记指出，科学成就离不开精神支撑，而科学家精神正是科技工作者取得重大成就的重要支柱。科学家精神的丰富内涵包括以下几方面：',
+                introSections: [
+                    {
+                        title: '1. 爱国精神',
+                        content: '胸怀祖国、服务人民的爱国精神是科学家精神的核心。科学无国界，但科学家有祖国。爱国是科学家精神之魂，也是立德之源、立功之本。许多科学家如钱学森、王希季等，为了祖国的发展，不畏艰难，毅然归国，投身于祖国的科学事业。他们的一生追求与祖国需要紧紧联系在一起，展示了我国科学家的高尚情怀和优秀品质。'
+                    },
+                    {
+                        title: '2. 创新精神',
+                        content: '勇攀高峰、敢为人先的创新精神是科学家精神的重要组成部分。科学探索永无止境，创新是科研工作的内在要求，也是不可或缺的精神特质。陈景润攻克了世界著名数学难题“哥德巴赫猜想”，展示了科学家勇攀高峰的精神。创新精神还体现在科学家们勇于挑战未知领域，如付巧妹在古基因组学领域的开拓性研究。'
+                    },
+                    {
+                        title: '3. 求实精神',
+                        content: '追求真理、严谨治学的求实精神是科学家精神的重要内容。唯实唯真是科技工作的立足之本。科学家如钱三强、张弥曼等，以严谨治学、追求真理的态度，推动了科学进步。屠呦呦发现青蒿素的过程，展示了科学家在科研过程中持之以恒、严谨求实的精神。'
+                    },
+                    {
+                        title: '4. 奉献精神',
+                        content: '淡泊名利、潜心研究的奉献精神是科学家精神的显著特征。许多科学家不畏困难、不慕虚荣，为科学事业默默奉献。邓稼先、黄旭华等科学家为了国家的科研事业，甘于奉献，甚至牺牲了个人的生活和亲情。他们的精神值得我们敬仰和学习。'
+                    },
+                    {
+                        title: '5. 协同精神',
+                        content: '集智攻关、团结协作的协同精神是科学家精神的时代要求。现代科学的发展需要团队的协作，协同攻关。中国科学界在载人航天、探月工程等重大项目中，展示了集智攻关的力量。这种团结协作的精神是大科学时代的必然趋势。'
+                    },
+                    {
+                        title: '6. 育人精神',
+                        content: '甘为人梯、奖掖后学的育人精神是科学家精神的传承。科学事业的未来属于年轻人，优秀的科学家不仅是科研事业的开拓者，也是提携后学的领路人。华罗庚发现并培养了陆启铿，黄大年倾囊相授青年才俊，卢永根捐出毕生积蓄奖励青年科技人才，这些都展示了科学家甘为人梯的精神。'
+                    }
+                ],
+                outroText: '新时代的科技工作者要大力弘扬科学家精神，加快建设科技强国，实现高水平科技自立自强。爱国、创新、求实、奉献、协同、育人精神将激励广大科技工作者勇于创新、攻坚克难，为实现中华民族伟大复兴、推动构建人类命运共同体作出应有的贡献。',
+                scientists: [
+                    {
+                        name: '钱学森',
+                        image: 'qian.jpg',
+                        link: 'qian_xuesen.html',
+                        description: '钱学森（1911-2009）是中国著名的火箭专家和航天工程师，被誉为“中国航天之父”。'
+                    },
+                    {
+                        name: '屠呦呦',
+                        image: 'tu.jpg',
+                        link: 'tu_youyou.html',
+                        description: '屠呦呦（1930-）是中国著名的药物化学家，因发现青蒿素而获得2015年诺贝尔生理学或医学奖。'
+                    },
+                    {
+                        name: '杨振宁',
+                        image: 'yang.jpg',
+                        link: 'yang_zhenning.html',
+                        description: '杨振宁（1922-）是中国著名的物理学家，因提出“李-杨定理”而获得1957年诺贝尔物理学奖。'
+                    }
+                ]
+            }
+        });
+    </script>
+
+</body>
+
+</html>
