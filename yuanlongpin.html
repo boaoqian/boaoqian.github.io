@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>钱学森的故事</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        header {
+            background-color: #c00;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        main {
+            max-width: 800px; /* 调整显示范围 */
+            margin: auto; /* 居中显示 */
+            padding: 20px;
+            background-color: #fff;
+            margin-top: 20px;
+            border: 1px solid #c00;
+            border-radius: 5px;
+        }
+
+        .scientist-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            line-height: 2.0;
+        }
+
+        .scientist-info img {
+            width: 150px;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .scientist-description {
+            line-height: 1.6;
+            font-size: 16px;
+        }
+        .scientist-story {
+            line-height: 2.0;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <h1>{{ pageTitle }}</h1>
+        </header>
+        <main>
+            <div class="scientist-info">
+                <img :src="scientist.image" :alt="scientist.name">
+                <div class="scientist-description">
+                    <h2>{{ scientist.name }}（{{ scientist.birth }}年{{ scientist.death }}年）</h2>
+                    <p>{{ scientist.title }}</p>
+                    <p>{{ scientist.contribution }}</p>
+                    <p>{{ scientist.patriotism }}</p>
+                </div>
+            </div>
+            <div class="scientist-story"><p>{{ scientist.story }}</p></div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                pageTitle: '袁隆平的故事',
+                scientist: {
+                    name: '袁隆平',
+                    birth: '1930',
+                    death: '2021',
+                    image: 'yuan.webp',
+                    title: '农业科学家',
+                    contribution: '一位享誉世界的中国科学家，被誉为“杂交水稻之父”',
+                    patriotism: '袁隆平的研究成果对中国乃至全世界的粮食生产产生了深远的影响。本文将为您讲述袁隆平的传奇故事。',
+                    story: '20世纪60年代，中国正面临着严重的粮食危机。当时，中国的水稻产量较低，远远不能满足人口的需求。为了解决这一问题，中国政府决定开展杂交水稻研究。1964年，袁隆平被派往湖南省安江农业学校工作，开始了他的杂交水稻研究之路。在安江农业学校，袁隆平发现了一株特殊的水稻，它的稻穗比其他水稻要大得多。经过研究发现，这株水稻是一种天然杂交水稻。这个发现让袁隆平看到了解决粮食危机的希望。他坚信，通过人工杂交技术，可以培育出更高产的水稻品种。从此，袁隆平开始了长达数十年的杂交水稻研究。他不断尝试，反复试验，终于取得了突破。1973年，袁隆平成功培育出了世界上第一个杂交水稻品种——南优2号。这个品种的产量比传统水稻提高了20%以上，引发了全球农业界的关注。随着杂交水稻技术的不断完善，袁隆平和他的团队又相继培育出了多个高产、抗病的杂交水稻品种。这些品种的推广，使中国的水稻产量大幅提高，不仅解决了国内的粮食问题，还出口到了世界多个国家，为全球粮食安全作出了巨大贡献。袁隆平的研究成果得到了国际社会的广泛认可。他先后获得了多项国际大奖，如联合国教科文组织科学奖、美国科学院外籍院士等。2004年，袁隆平获得了诺贝尔和平奖提名，以表彰他在解决全球粮食问题上的突出贡献。袁隆平不仅是一位杰出的科学家，还是一位充满爱心的人。他关心农民的生活，致力于帮助他们脱贫致富。他经常深入农村，与农民交流，了解他们的需求，为他们提供技术支持。袁隆平还积极推动农业教育，培养了一批批农业科技人才，为中国的农业发展注入了新的活力。袁隆平的故事激励着无数人。他用自己的智慧和勇气，为人类的粮食安全作出了巨大贡献。他的事迹告诉我们，只要我们坚持不懈，勇往直前，就一定能够战胜困难，实现我们的梦想。如今，袁隆平已经离世，但他的精神永远激励着我们。让我们铭记这位伟大的科学家，学习他的精神，为实现中华民族伟大复兴的中国梦而努力奋斗！'
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

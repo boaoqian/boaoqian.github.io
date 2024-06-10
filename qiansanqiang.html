@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>钱学森的故事</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        header {
+            background-color: #c00;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        main {
+            max-width: 800px; /* 调整显示范围 */
+            margin: auto; /* 居中显示 */
+            padding: 20px;
+            background-color: #fff;
+            margin-top: 20px;
+            border: 1px solid #c00;
+            border-radius: 5px;
+        }
+
+        .scientist-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            line-height: 2.0;
+        }
+
+        .scientist-info img {
+            width: 150px;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .scientist-description {
+            line-height: 1.6;
+            font-size: 16px;
+        }
+        .scientist-story {
+            line-height: 2.0;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <h1>{{ pageTitle }}</h1>
+        </header>
+        <main>
+            <div class="scientist-info">
+                <img :src="scientist.image" :alt="scientist.name">
+                <div class="scientist-description">
+                    <h2>{{ scientist.name }}（{{ scientist.birth }}年{{ scientist.death }}年）</h2>
+                    <p>{{ scientist.title }}</p>
+                    <p>{{ scientist.contribution }}</p>
+                    <p>{{ scientist.patriotism }}</p>
+                </div>
+            </div>
+            <div class="scientist-story"><p>{{ scientist.story }}</p></div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                pageTitle: '钱三强的故事',
+                scientist: {
+                    name: '钱三强',
+                    birth: '1913',
+                    death: '1992',
+                    image: 'qian2.jpg',
+                    title: '中国物理学家',
+                    contribution: '钱三强，原名钱思亮，是中国现代著名的核物理学家，被誉为“中国原子弹之父”',
+                    patriotism: '他于1913年10月16日出生于江苏省苏州市，是中国原子能科学事业的奠基人之一。',
+                    story: '钱三强从小就表现出对科学的浓厚兴趣。1936年，他毕业于清华大学物理系，随后赴美国留学，在加州理工学院获得了博士学位。在那里，他师从著名物理学家罗伯特·米立肯，从事原子核物理研究。1946年，钱三强回到中国，开始了他在原子能领域的探索。回国后，钱三强在上海交通大学任教，并开始着手建立中国的原子能科学研究体系。1949年，新中国成立后，他被任命为中国科学院原子能研究所所长，开始了中国原子弹的研制工作。在钱三强的带领下，中国的原子能科学研究取得了突破性进展。1958年，中国第一座实验性原子反应堆——重水反应堆在钱三强的主持下建成并投入运行。1964年10月16日，中国第一颗原子弹在新疆罗布泊爆炸成功，钱三强为这一历史性时刻作出了巨大贡献。钱三强不仅在科学研究上取得了卓越成就，他还是一位杰出的教育家。他提倡科学精神和实事求是的态度，培养了一大批优秀的科学家。他的学生中，有诺贝尔物理学奖得主杨振宁和李政道，以及其他多位在国内外享有盛誉的科学家。钱三强一生简朴，淡泊名利。他始终坚守科学研究的初心，为国家的科技事业鞠躬尽瘁、死而后已。即使在文化大革命期间受到迫害，他依然保持着对科学的热爱和对国家的忠诚。钱三强的故事是中国科学家精神的典范。他用自己的智慧和毅力，为国家的强盛和民族的复兴作出了巨大贡献。他的事迹告诉我们，一个国家、一个民族要想立足于世界民族之林，必须拥有自己的科技力量。钱三强的一生，是对科学的执着追求，是对国家的无私奉献，是对教育的满腔热情。他的故事激励着无数中国人，尤其是年轻一代，要立志报国，为国家的科技事业贡献力量。今天，我们纪念钱三强，就是要学习他的精神，弘扬科学家精神，为实现中华民族伟大复兴的中国梦而努力奋斗。让我们铭记这位伟大的科学家，传承他的精神，为国家的繁荣富强而努力拼搏！'
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
